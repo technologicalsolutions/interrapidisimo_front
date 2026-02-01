@@ -15,7 +15,7 @@ import { Authroute } from "./auth.route";
 import { RouterLink } from "@angular/router";
 
 //modulos
-import { RegisterComponent} from './components/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 
 //ng-zorro
 import { NzConfig, NZ_CONFIG } from "ng-zorro-antd/core/config";
@@ -23,7 +23,10 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { UserOutline } from '@ant-design/icons-angular/icons';
+import { BookOutline, CheckCircleOutline, EyeInvisibleOutline, EyeOutline, LockOutline, MailOutline, TeamOutline, UserAddOutline, UserOutline } from '@ant-design/icons-angular/icons';
+import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
+import { NzMessageModule } from "ng-zorro-antd/message";
+
 
 
 const ngZorroConfig: NzConfig = {
@@ -44,8 +47,20 @@ const ngZorroConfig: NzConfig = {
         NzFormModule,
         NzButtonModule,
         NzInputModule,
+        NzCheckboxModule,
+        NzMessageModule,
         NzIconModule,
-        NzIconModule.forRoot([UserOutline]),        
+        NzIconModule.forRoot([
+            UserOutline,
+            LockOutline,
+            MailOutline,
+            EyeOutline,
+            EyeInvisibleOutline,
+            CheckCircleOutline,
+            UserAddOutline,
+            BookOutline,
+            TeamOutline
+        ]),
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'es' },

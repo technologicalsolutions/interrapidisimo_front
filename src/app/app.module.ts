@@ -27,6 +27,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { NZ_CONFIG, NzConfig } from 'ng-zorro-antd/core/config';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { BookOutline, CheckCircleOutline, EyeInvisibleOutline, EyeOutline, LockOutline, MailOutline, TeamOutline, UserAddOutline, UserOutline } from '@ant-design/icons-angular/icons';
 
 
 const ngZorroConfig: NzConfig = {
@@ -53,7 +56,21 @@ const ngZorroConfig: NzConfig = {
         NzIconModule,
         NzFormModule,
         NzInputModule,
-        NzSwitchModule,        
+        NzSwitchModule,
+        NzCheckboxModule,
+        NzMessageModule,
+        NzIconModule,
+        NzIconModule.forRoot([
+            UserOutline,
+            LockOutline,
+            MailOutline,
+            EyeOutline,
+            EyeInvisibleOutline,
+            CheckCircleOutline,
+            UserAddOutline,
+            BookOutline,
+            TeamOutline
+        ]),
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'es' },

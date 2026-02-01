@@ -1,1 +1,106 @@
-<p>register works!</p>
+<div class="register-container">
+    <div class="register-wrapper">
+        <div class="register-left">
+            <div class="brand-section">
+                <div class="logo-container">
+                    <img src="assets/img/logo-blanco.webp" alt="Inter University" class="logo" />
+                </div>
+                <h1 class="brand-title">Únete a Inter University</h1>
+                <p class="brand-subtitle">Comienza tu experiencia académica hoy</p>
+            </div>
+        </div>
+
+        <div class="register-right">
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Crear Cuenta</h3>
+                    <p>Completa el formulario para registrarte</p>
+                </div>
+                <form nz-form [formGroup]="registerForm" (ngSubmit)="submitForm($event)" class="register-form">
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="nombres" [nzSpan]="24">Nombres</nz-form-label>
+                        <nz-form-control nzErrorTip="Ingresa tus nombres" [nzSpan]="24">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input nz-input formControlName="nombres" id="nombres" type="text"
+                                    autocomplete="name" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="apellidos" [nzSpan]="24">Apellidos</nz-form-label>
+                        <nz-form-control nzErrorTip="Ingresa tus apellidos" [nzSpan]="24">
+                            <nz-input-group nzPrefixIcon="user">
+                                <input nz-input formControlName="apellidos" id="apellidos" type="text"
+                                    autocomplete="name" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="correo" [nzSpan]="24">Correo Electrónico</nz-form-label>
+                        <nz-form-control nzErrorTip="Ingresa un correo válido" [nzSpan]="24">
+                            <nz-input-group nzPrefixIcon="mail">
+                                <input nz-input formControlName="correo" id="correo" type="email"
+                                    placeholder="ejemplo@correo.com" autocomplete="email" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="telefono" [nzSpan]="24">Teléfono</nz-form-label>
+                        <nz-form-control nzErrorTip="Ingresa un telefono válido" [nzSpan]="24">
+                            <nz-input-group nzPrefixIcon="phone">
+                                <input nz-input formControlName="telefono" id="telefono" type="number" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzRequired nzFor="clave" [nzSpan]="24">Contraseña</nz-form-label>
+                        <nz-form-control [nzSpan]="24" [nzErrorTip]="getPasswordErrorTip()">
+                            <nz-input-group [nzSuffix]="passwordSuffixTemplate" nzPrefixIcon="lock">
+                                <input nz-input formControlName="clave" id="clave"
+                                    [type]="passwordVisible ? 'text' : 'password'"
+                                    placeholder="Crea una contraseña segura" autocomplete="new-password" />
+                            </nz-input-group>
+                            <ng-template #passwordSuffixTemplate>
+                                <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                                    (click)="passwordVisible = !passwordVisible" class="password-toggle"></span>
+                            </ng-template>
+                            <div class="password-hint">
+                                <small>Debe contener mayúsculas, minúsculas y números</small>
+                            </div>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-label nzRequired [nzSpan]="24" nzFor="confirmPassword">
+                            Confirmar Contraseña
+                        </nz-form-label>
+                        <nz-form-control [nzSpan]="24" [nzErrorTip]="getConfirmPasswordErrorTip()">
+                            <nz-input-group [nzSuffix]="confirmPasswordSuffixTemplate" nzPrefixIcon="lock">
+                                <input nz-input formControlName="confirmacion" id="confirmacion"
+                                    [type]="confirmPasswordVisible ? 'text' : 'password'"
+                                    placeholder="Repite tu contraseña" autocomplete="new-password" />
+                            </nz-input-group>
+                            <ng-template #confirmPasswordSuffixTemplate>
+                                <span nz-icon [nzType]="confirmPasswordVisible ? 'eye-invisible' : 'eye'"
+                                    (click)="confirmPasswordVisible = !confirmPasswordVisible"
+                                    class="password-toggle"></span>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <button nz-button nzType="primary" nzBlock nzSize="large" [nzLoading]="loading"
+                            [disabled]="loading" type="submit" class="register-button">
+                            {{ loading ? 'Registrando...' : 'Crear Cuenta' }}
+                        </button>
+                    </nz-form-item>
+
+                    <div class="login-link">
+                        <span>¿Ya tienes una cuenta?</span>
+                        <a (click)="goToLogin()">Inicia sesión aquí</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
